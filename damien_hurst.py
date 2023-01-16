@@ -2,20 +2,21 @@ import random
 from turtle import Turtle, Screen
 import colorgram
 
-DOT_SIZE = 15
-DOT_SPACING = 25
+DOT_SIZE = 30
 NUM_DOTS_X = 10
-NUM_DOTS_Y = 20
-X_SCREEN_SIZE = (NUM_DOTS_X * DOT_SPACING) + DOT_SIZE
-Y_SCREEN_SIZE = (NUM_DOTS_Y * DOT_SPACING) + DOT_SIZE
-START_DRAW_X = -X_SCREEN_SIZE / 2
-START_DRAW_Y = Y_SCREEN_SIZE / 2
+NUM_DOTS_Y = 10
+DOT_SPACING = DOT_SIZE * 2
+BORDER_BUFFER = DOT_SIZE * 2 + 5
+X_SCREEN_SIZE = (NUM_DOTS_X * DOT_SPACING) + BORDER_BUFFER
+Y_SCREEN_SIZE = (NUM_DOTS_Y * DOT_SPACING) + BORDER_BUFFER
+START_DRAW_X = (-(X_SCREEN_SIZE / 2)) + (BORDER_BUFFER / 2)
+START_DRAW_Y = (Y_SCREEN_SIZE - BORDER_BUFFER) / 2
 
 drawer = Turtle()
 screen = Screen()
 drawer.speed(0)
 drawer.hideturtle()
-screen.setup(X_SCREEN_SIZE + 40, Y_SCREEN_SIZE + 40, 0, 0)
+screen.setup(X_SCREEN_SIZE, Y_SCREEN_SIZE, 0, 0)
 screen.colormode(255)
 colours = colorgram.extract("./resources/download.jpg", 100)
 
