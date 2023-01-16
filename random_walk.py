@@ -1,13 +1,12 @@
 import random
-from random import choice
 from turtle import Turtle, Screen
 
 
 class RandomWalker:
     START_Y = 0
     START_X = 0
-    Y_SCREEN_SIZE = 768
-    X_SCREEN_SIZE = 1024
+    X_SCREEN_SIZE = 640
+    Y_SCREEN_SIZE = 480
     SPEED_FASTEST = 0
 
     def __init__(self):
@@ -17,10 +16,28 @@ class RandomWalker:
         self.walker.speed(self.SPEED_FASTEST)
         self.walker.pensize(8)
         self.screen = Screen()
-        self.screen.setup(self.X_SCREEN_SIZE, self.Y_SCREEN_SIZE,
+        self.screen.setup(self.X_SCREEN_SIZE + 30, self.Y_SCREEN_SIZE + 30,
                           self.START_X, self.START_Y)
         self.screen.colormode(255)
-        # self.my_screen.exitonclick()
+        # self.screen.exitonclick()
+
+    def test_screen_limit(self):
+        self.screen.mode("logo")
+        self.walker.showturtle()
+        self.walker.pensize(15)
+        self.walker.speed(1)
+        self.walker.penup()
+        self.walker.goto(-self.X_SCREEN_SIZE / 2, self.Y_SCREEN_SIZE / 2)
+        self.walker.setheading(90)
+        self.walker.pendown()
+        self.walker.forward(self.X_SCREEN_SIZE)
+        self.walker.rt(90)
+        self.walker.forward(self.Y_SCREEN_SIZE)
+        self.walker.rt(90)
+        self.walker.forward(self.X_SCREEN_SIZE)
+        self.walker.rt(90)
+        self.walker.forward(self.Y_SCREEN_SIZE)
+        self.screen.exitonclick()
 
     def walk(self):
         if self.on_screen():
@@ -62,6 +79,7 @@ class RandomWalker:
 
 
 walker = RandomWalker()
+# walker.test_screen_limit()
 while 1:
     walker.walk()
 
