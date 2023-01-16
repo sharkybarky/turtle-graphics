@@ -68,7 +68,7 @@ class RandomWalker:
         random_right_angle = random.randint(0, 3) * 90
         self.walker.setheading(random_right_angle)
 
-    def on_screen(self):
+    def on_screen(self) -> bool:
         position = self.walker.pos()
         if abs(position[0]) > self.X_SCREEN_SIZE / 2 or \
            abs(position[1]) > self.Y_SCREEN_SIZE / 2:
